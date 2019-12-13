@@ -6,6 +6,24 @@
 <mapper namespace="org.jsen.dao.UserMapper">
     <!--   id 对应接口中的方法-->
     <select id="selectUser" resultType="org.jsen.pojo.User">
-   select * from user
-  </select>
+                select * from user
+    </select>
+    <!--根据id查询用户-->
+    <select id="getUserById" resultType="org.jsen.pojo.User">
+               select * from user where id=#{id}
+    </select>
+
+    <insert id="addUser" parameterType="org.jsen.pojo.User">
+        insert into user (id,name,pwd) value (#{id},#{name},#{pwd});
+    </insert>
+
+    <update id="upDateUser" parameterType="org.jsen.pojo.User">
+        update user set name =#{name} ,pwd=#{pwd} where id=#{id};
+    </update>
+
+    <delete id="delUser" parameterType="int">
+        delete from user where id=#{id}
+    </delete>
+
+
 </mapper>

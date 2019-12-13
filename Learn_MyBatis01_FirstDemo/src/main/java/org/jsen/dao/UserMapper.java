@@ -10,5 +10,37 @@ import java.util.List;
  *
  */
 public interface UserMapper {
+    /**
+     * 查询全部用户
+     */
     List<User> selectUser();
+
+    /**
+     * 根据用户id查询用户
+     */
+    User getUserById(int id);
+
+    /**
+     * 添加用户
+     *
+     * @param user
+     * @return
+     */
+    int addUser(User user);
+
+    /**
+     * 更新用户
+     *
+     * @param user
+     * @return
+     */
+    int upDateUser(User user);
+
+    /**
+     * 根据id 删除一个用户
+     *
+     * @param id
+     * @return
+     */
+    int delUser(int id);
 }
