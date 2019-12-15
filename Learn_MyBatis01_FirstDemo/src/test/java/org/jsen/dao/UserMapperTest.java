@@ -5,7 +5,9 @@ import org.jsen.pojo.User;
 import org.jsen.utils.MybatisUtils;
 import org.junit.Test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 /*
@@ -73,11 +75,31 @@ public class UserMapperTest {
 
     }
 
+
     @Test
     public void delUser() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         int i = mapper.delUser(9);
+        //提交事务
+        sqlSession.commit();//没有不会提交到数据库中
+        sqlSession.close();
+    }
+
+
+    @Test
+    public void selectUserLike() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("userName", "%李%");
+        List<User> users = mapper.selectUserLike(map);
+        for (int i = 0; i < users.size(); i++) {
+            User user = users.get(i);
+            System.out.println(user.toString()
+            );
+
+        }
         //提交事务
         sqlSession.commit();//没有不会提交到数据库中
         sqlSession.close();

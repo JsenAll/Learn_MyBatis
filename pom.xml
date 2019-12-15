@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>Learn_MyBatis01_FirstDemo</module>
+        <module>Learn_MyBatis02_Optimize</module>
     </modules>
     <dependencies>
         <!--mybatis-->

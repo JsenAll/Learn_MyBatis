@@ -3,6 +3,7 @@ package org.jsen.dao;
 import org.jsen.pojo.User;
 
 import java.util.List;
+import java.util.Map;
 
 /*
  * @Author Jsen
@@ -37,10 +38,21 @@ public interface UserMapper {
     int upDateUser(User user);
 
     /**
+     * 万能的Map  进行更新
+     * @param map
+     * @return
+     */
+
+    List<User> selectUserLike(Map<String, Object> map);
+
+
+    /**
      * 根据id 删除一个用户
      *
      * @param id
      * @return
      */
     int delUser(int id);
+
+
 }
