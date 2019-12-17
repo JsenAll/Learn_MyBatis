@@ -3,7 +3,17 @@
             configuration（配置）
             properties（属性）
             settings（设置）
+
             typeAliases（类型别名）
+            别名 推荐使用 可以批量的生成别名 想要自定义别名 此方法加上 注解 完美解决
+                < typeAliases>
+                    <package name="org.jsen.pojo"/>
+                </typeAliases>
+
+
+
+
+
             typeHandlers（类型处理器）
             objectFactory（对象工厂）
             plugins（插件）
@@ -12,5 +22,17 @@
             transactionManager（事务管理器）
             dataSource（数据源）
             databaseIdProvider（数据库厂商标识）
-            mappers（映射器）
+
+
+            mappers（映射器）  推荐第一种
+                     <mappers>
+                        <!-- 方式1 使用相对于类路径的资源引用 -->
+                <!--        <mapper resource="org\jsen\dao\UserMapper.xml"/>-->
+
+                        <!-- 方式2 使用映射器接口实现类的完全限定类名 -->
+                <!--        <mapper class="org.jsen.dao.UserMapper"/>-->
+
+                        <!-- 方式3 将包内的映射器接口实现全部注册为映射器 -->
+                        <package name="org.jsen.dao"/>
+                    </mappers>
 

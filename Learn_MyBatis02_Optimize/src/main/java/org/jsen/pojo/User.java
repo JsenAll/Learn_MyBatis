@@ -1,10 +1,13 @@
 package org.jsen.pojo;
 
+import org.apache.ibatis.type.Alias;
+
 /*
  * @Author Jsen
  * @Time  2019/12/12 18:04
  *
  */
+@Alias("user")
 public class User {
     private int id; //id
     private String name; //姓名

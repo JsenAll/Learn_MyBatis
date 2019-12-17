@@ -12,10 +12,16 @@
         <property name="password" value="jhs123"/>
     </properties>
 
-    <!--添加别名 优化代码-->
+    <!--添加别名-方法一 优化代码-->
+<!--        <typeAliases>-->
+<!--            <typeAlias alias="user" type="org.jsen.pojo.User"></typeAlias>-->
+<!--        </typeAliases>-->
+
+    <!--添加别名-方法二 对 org.jsen.pojo 包下的所有实体类 都起了别名 默认别名 是类的首字母小写-->
     <typeAliases>
-        <typeAlias alias="user" type="org.jsen.pojo.User"></typeAlias>
+        <package name="org.jsen.pojo"/>
     </typeAliases>
+
 
     <!-- 环境-->
     <environments default="development">
@@ -30,6 +36,13 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="org\jsen\dao\UserMapper.xml"/>
+        <!-- 方式1 使用相对于类路径的资源引用 -->
+<!--        <mapper resource="org\jsen\dao\UserMapper.xml"/>-->
+
+        <!-- 方式2 使用映射器接口实现类的完全限定类名 -->
+<!--        <mapper class="org.jsen.dao.UserMapper"/>-->
+
+        <!-- 方式3 将包内的映射器接口实现全部注册为映射器 -->
+        <package name="org.jsen.dao"/>
     </mappers>
 </configuration>
