@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--绑定一个对应的mapper接口-->
+<mapper namespace="org.jsen.dao.UserMapper">
+    <!--结果映射-->
+    <resultMap id="User" type="user">
+        <result column="pwd" property="password"></result>
+    </resultMap>
+
+    <!--   id 对应接口中的方法-->
+    <select id="selectUser" resultMap="User">
+                select * from user
+    </select>
+    <!--根据id查询用户-->
+    <select id="getUserById" resultType="user">
+               select * from user where id=#{id}
+    </select>
+
+    <insert id="addUser" parameterType="user">
+        insert into user (id,name,pwd) value (#{id},#{name},#{pwd});
+    </insert>
+
+    <update id="upDateUser" parameterType="user">
+        update user set name =#{name} ,pwd=#{pwd} where id=#{id};
+    </update>
+
+
+    <select id="selectUserLike" parameterType="Map" resultType="user">
+       select * from user where name like  #{userName} ;
+    </select>
+
+
+    <delete id="delUser" parameterType="int">
+        delete from user where id=#{id}
+    </delete>
+
+
+</mapper>
