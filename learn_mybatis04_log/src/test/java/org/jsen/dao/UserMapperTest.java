@@ -19,7 +19,7 @@ import java.util.Map;
  */
 public class UserMapperTest {
 
-//    private static Logger logger = Logger.getLogger(UserMapperTest.class);
+    private static Logger logger = Logger.getLogger(UserMapperTest.class);
 
     @Test
     public void selectUser() {
@@ -32,8 +32,9 @@ public class UserMapperTest {
         for (int i = 0; i < users.size(); i++) {
             User user = users.get(i);
             System.out.println(user.toString());
-//            logger.info("info：进入selectUser方法");
-//            logger.debug("debug：进入selectUser方法");
+
+            logger.info("info：进入selectUser方法");
+            logger.debug("debug：进入selectUser方法");
 //            logger.error("error: 进入selectUser方法");
 //            logger.debug(user.toString());
         }
