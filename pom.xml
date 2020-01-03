@@ -12,8 +12,15 @@
         <module>Learn_MyBatis01_FirstDemo</module>
         <module>Learn_MyBatis02_Optimize</module>
         <module>learn_mybatis04_log</module>
+        <module>learn_mybatis05_annotation</module>
     </modules>
     <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
         <!--mybatis-->
         <dependency>
             <groupId>org.mybatis</groupId>
