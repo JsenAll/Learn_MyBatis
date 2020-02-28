@@ -1,8 +1,8 @@
 package org.jsen.dao;
 
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
-import org.apache.log4j.pattern.LogEvent;
 import org.jsen.pojo.User;
 import org.jsen.utils.MybatisUtils;
 import org.junit.Test;
@@ -23,25 +23,37 @@ public class UserMapperTest {
 
     @Test
     public void selectUser() {
-        //第一步获取SqlSession
         SqlSession sqlSession = MybatisUtils.getSqlSession();
-
-        //方式一 最新推荐
-        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        List<User> users = mapper.selectUser();
+        RowBounds rowBounds = new RowBounds(0, 4);
+        List<User> users =sqlSession.selectList("org.jsen.dao.UserMapper.selectUser", null,rowBounds);
         for (int i = 0; i < users.size(); i++) {
             User user = users.get(i);
             System.out.println(user.toString());
-
-            logger.info("info：进入selectUser方法");
-            logger.debug("debug：进入selectUser方法");
-//            logger.error("error: 进入selectUser方法");
-//            logger.debug(user.toString());
         }
-
         sqlSession.close();
     }
 
+    @Test
+    public void testLog4J() {
+        logger.info("info:");
+        logger.debug("debug");
+        logger.error("error");
+    }
+
+    @Test
+    public void limitUser() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("start", 1);
+        map.put("end", 2);
+        List<User> users = mapper.getUsetByLimit(map);
+        for (int i = 0; i < users.size(); i++) {
+            User user = users.get(i);
+            System.out.println(user.toString());
+        }
+        sqlSession.close();
+    }
 
 
 }

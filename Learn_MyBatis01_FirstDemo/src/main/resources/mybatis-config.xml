@@ -2,11 +2,16 @@
 <!DOCTYPE configuration
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
-<!--核心配置文件-->
+<!--configuration 核心配置文件-->
 <configuration>
-    <!-- 环境-->
+    <settings>
+        <!--<setting name="logImpl" value="LOG4J"/>-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!-- 环境  environments 可以配置多套环境  default 默认选择哪一套环境-->
     <environments default="development">
         <environment id="development">
+            <!--transactionManager 事务管理-->
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>

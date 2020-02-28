@@ -30,14 +30,6 @@ public class UserMapperTest {
             System.out.println(user.toString());
         }
 
-
-        //方式二 不推荐
-//        List<User> userList = sqlSession.selectList("org.jsen.dao.UserMapper.selectUser");
-//        for (int i = 0; i < userList.size(); i++) {
-//            User user = userList.get(i);
-//            System.out.println(user.toString());
-//        }
-
         sqlSession.close();
     }
 
@@ -55,7 +47,8 @@ public class UserMapperTest {
     public void addUser() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        User user = new User(9, "蒋厚森", "123456784546");
+
+        User user = new User(2, "胡金文", "hujinwen");
         int i = mapper.addUser(user);
         System.out.println(i);
         //提交事务
@@ -67,7 +60,7 @@ public class UserMapperTest {
     public void upDateUser() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        User user = new User(9, "韩钰", "123456784546");
+        User user = new User(2, "韩钰", "123456784546");
         int i = mapper.upDateUser(user);
         //提交事务
         sqlSession.commit();//没有不会提交到数据库中

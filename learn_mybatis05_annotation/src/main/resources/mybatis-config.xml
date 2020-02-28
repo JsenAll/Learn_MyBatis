@@ -12,13 +12,6 @@
         <property name="password" value="jhs123"/>
     </properties>
 
-
-    <!--添加别名-方法一 优化代码-->
-    <!--        <typeAliases>-->
-    <!--            <typeAlias alias="user" type="org.jsen.pojo.User"></typeAlias>-->
-    <!--        </typeAliases>-->
-
-    <!--添加别名-方法二 对 org.jsen.pojo 包下的所有实体类 都起了别名 默认别名 是类的首字母小写-->
     <typeAliases>
         <package name="org.jsen.pojo"/>
     </typeAliases>

@@ -16,6 +16,9 @@ public interface UserMapper {
      */
     List<User> selectUser();
 
-
+    /**
+     * 使用分页查询
+     */
+    List<User> getUsetByLimit(Map<String, Object> map);
 
 }
