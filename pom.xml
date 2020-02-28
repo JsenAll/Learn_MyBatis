@@ -13,6 +13,7 @@
         <module>Learn_MyBatis02_Optimize</module>
         <module>learn_mybatis04_log</module>
         <module>learn_mybatis05_annotation</module>
+        <module>learn_mybatis06_fuzadata</module>
     </modules>
     <dependencies>
         <dependency>
