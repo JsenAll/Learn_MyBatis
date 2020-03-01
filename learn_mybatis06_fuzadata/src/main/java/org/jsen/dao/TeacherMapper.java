@@ -9,4 +9,6 @@ import org.jsen.pojo.Teacher;
 public interface TeacherMapper {
     @Select("select * from teacher ")
     public Teacher getTT();
+
+    Teacher getTeacherByID();
 }

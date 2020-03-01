@@ -33,5 +33,6 @@
     <!--    绑定接口-->
     <mappers>
         <mapper class="org.jsen.dao.TeacherMapper"/>
+        <mapper class="org.jsen.dao.StudentMapper"/>
     </mappers>
 </configuration>
