@@ -8,20 +8,14 @@
         SELECT * from student
     </select>
 
-    <!--
-        - 按查询嵌套处理
-    -->
+    <!--按查询嵌套处理-->
     <select id="getST" resultMap="getTSMap">
         SELECT * from student
     </select>
     <resultMap id="getTSMap" type="Student">
         <result property="id" column="id"></result>
         <result property="name" column="name"></result>
-        <!--
-            - 按查询嵌套处理
-            - association关联属性  property属性名 javaType属性类型 column在多的一方的表中的列名
-         -->
-
+        <!-- association关联属性  property属性名 javaType属性类型 column在多的一方的表中的列名-->
         <association property="teacher" column="tid" javaType="Teacher" select="getTeacherByID"></association>
     </resultMap>
 
@@ -34,10 +28,10 @@
     select s.id sid, s.name sname , t.name tname
     from student s,teacher t
     where s.tid = t.id
-</select>
+    </select>
 
     <resultMap id="StudentTeacher2" type="Student">
-        <id property="id" column="sid"/>
+        <result property="id" column="sid"/>
         <result property="name" column="sname"/>
         <!--关联对象property 关联对象在Student实体类中的属性-->
         <association property="teacher" javaType="Teacher">
