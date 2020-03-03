@@ -15,6 +15,7 @@
         <module>learn_mybatis05_annotation</module>
         <module>learn_mybatis06_fuzadata</module>
         <module>learn_mybatis07_n1</module>
+        <module>learn_mybatis08_Dsql</module>
     </modules>
     <dependencies>
         <dependency>
