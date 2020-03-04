@@ -16,6 +16,7 @@
         <module>learn_mybatis06_fuzadata</module>
         <module>learn_mybatis07_n1</module>
         <module>learn_mybatis08_Dsql</module>
+        <module>learn_mybatis09_Cache</module>
     </modules>
     <dependencies>
         <dependency>
